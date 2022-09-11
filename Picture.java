@@ -7,25 +7,56 @@
  * This class was written as an early example for teaching Java with BlueJ.
  * 
  * @author  Eric Brown
- * @version 2022-09-5
+ * @version 2022-09-11
  */
 public class Picture
-{
-    private Square wall;
-    private Square window;
-    private Triangle roof;
-    private Circle sun;
+{   private Circle frame;
+    private Square background;
+    private Person wizard;
+    private Circle leftEye;
+    private Circle rightEye;
+    private Triangle nose;
+    
+    private Triangle robe;
+    private Square sleeve;
+    private Circle glow;
+    
+    private Triangle hat;
+    private Triangle wand;
+    private Circle orb;
+    private Circle orbOutline;
+    
+    private Square testSquare;
+    
+    private Circle testCircle;
     private boolean drawn;
 
     /**
      * Constructor for objects of class Picture
      */
     public Picture()
-    {
-        wall = new Square();
-        window = new Square();
-        roof = new Triangle();  
-        sun = new Circle();
+    {   
+        frame = new Circle();
+        background = new Square();
+        
+        wizard = new Person();
+        rightEye = new Circle();
+        leftEye = new Circle();
+        nose = new Triangle();
+        
+        robe = new Triangle();
+        sleeve = new Square();
+        glow = new Circle();
+        //wall = new Square();
+        
+        hat = new Triangle();  
+        wand = new Triangle();
+        orb = new Circle();
+        
+        orbOutline = new Circle();
+
+        testSquare = new Square();
+        testCircle = new Circle();
         drawn = false;
     }
 
@@ -35,27 +66,75 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            wall.moveHorizontal(-140);
-            wall.moveVertical(20);
-            wall.changeSize(120);
-            wall.makeVisible();
+            String robeColor = "purple";
             
-            window.changeColor("black");
-            window.moveHorizontal(-120);
-            window.moveVertical(40);
-            window.changeSize(40);
-            window.makeVisible();
-    
-            roof.changeSize(60, 180);
-            roof.moveHorizontal(20);
-            roof.moveVertical(-60);
-            roof.makeVisible();
-    
-            sun.changeColor("yellow");
-            sun.moveHorizontal(100);
-            sun.moveVertical(-40);
-            sun.changeSize(80);
-            sun.makeVisible();
+            background.changeSize(500);
+            background.changeColor("black");
+            background.makeVisible();
+            
+            frame.changeSize(400);
+            frame.changeColor("white");
+            frame.makeVisible();
+            
+            wizard.changeSize(350,175);
+            wizard.moveVertical(40);
+            wizard.makeVisible();
+            
+            leftEye.changeSize(20);
+            leftEye.moveVertical(-15);
+            leftEye.moveHorizontal(-20);
+            leftEye.changeColor("white");
+            leftEye.makeVisible();
+            
+            rightEye.changeSize(20);            
+            rightEye.moveVertical(-15);
+            rightEye.changeColor("white");
+            rightEye.moveHorizontal(20);
+            rightEye.makeVisible();
+            
+            
+            nose.changeSize(20,10);
+            nose.moveVertical(-10);
+            nose.changeColor("white");
+            nose.makeVisible();
+            
+            robe.changeSize(260, 230);
+            robe.moveVertical(45);
+            robe.changeColor(robeColor);
+            robe.makeVisible();
+            
+            sleeve.changeSize(80);
+            sleeve.moveVertical(80);
+            sleeve.changeColor(robeColor);
+            sleeve.makeVisible();
+
+            hat.changeSize(120, 88);
+            hat.changeColor(robeColor);
+            hat.moveVertical(-150);
+            hat.makeVisible();
+            
+            wand.changeSize(120,15);
+            wand.moveVertical(0);
+            wand.moveHorizontal(-90);
+            wand.changeColor("rust");
+            wand.makeVisible();
+            
+            glow.changeColor("yellow");
+            glow.changeSize(30);
+            glow.moveHorizontal(-90);
+            glow.moveVertical(0);
+            glow.makeVisible();
+
+            orbOutline.changeColor("white");
+            orbOutline.moveVertical(100);
+            orbOutline.changeSize(94);
+            orbOutline.makeVisible();
+            
+            orb.changeColor("seafoam");
+            orb.moveVertical(100);
+            orb.changeSize(90);
+            orb.makeVisible();
+            
             drawn = true;
         }
     }
@@ -65,10 +144,8 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
-        wall.changeColor("black");
-        window.changeColor("white");
-        roof.changeColor("black");
-        sun.changeColor("black");
+        hat.changeColor("black");
+        orb.changeColor("black");
     }
 
     /**
@@ -76,9 +153,8 @@ public class Picture
      */
     public void setColor()
     {
-        wall.changeColor("red");
-        window.changeColor("black");
-        roof.changeColor("green");
-        sun.changeColor("yellow");
+
+        hat.changeColor("green");
+        orb.changeColor("yellow");
     }
 }
