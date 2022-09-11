@@ -1,10 +1,6 @@
 /**
- * This class represents a simple picture. You can draw the picture using
- * the draw method. But wait, there's more: being an electronic picture, it
- * can be changed. You can set it to black-and-white display and back to
- * colors (only after it's been drawn, of course).
- *
- * This class was written as an early example for teaching Java with BlueJ.
+ * Picture Description: On the night of the full moon, a mighty wizard uses his wand to conjure his pointy hat
+ * and mystical scrying orb from his coffee table offscreen. 
  * 
  * @author  Eric Brown
  * @version 2022-09-11
@@ -52,7 +48,6 @@ public class Picture
         robe = new Triangle();
         sleeve = new Square();
         glow = new Circle();
-        //wall = new Square();
         
         hat = new Triangle();  
         wand = new Triangle();
@@ -100,7 +95,6 @@ public class Picture
             rightEye.moveHorizontal(20);
             rightEye.makeVisible();
             
-            
             nose.changeSize(20,10);
             nose.moveVertical(-10);
             nose.changeColor("white");
@@ -118,7 +112,7 @@ public class Picture
 
             hat.changeSize(120, 88);
             hat.changeColor(robeColor);
-            hat.moveVertical(-150);
+            hat.moveVertical(-300);
             hat.makeVisible();
             
             wand.changeSize(120,15);
@@ -130,18 +124,27 @@ public class Picture
             glow.changeColor(glowColor);
             glow.changeSize(30);
             glow.moveHorizontal(-90);
-            glow.moveVertical(0);
+            glow.moveVertical(-150);
             glow.makeVisible();
 
             orbOutline.changeColor(orbOutlineColor);
-            orbOutline.moveVertical(100);
+            orbOutline.moveVertical(210);
             orbOutline.changeSize(94);
             orbOutline.makeVisible();
             
             orb.changeColor(orbColor);
-            orb.moveVertical(100);
+            orb.moveVertical(210);
             orb.changeSize(90);
             orb.makeVisible();
+            
+            glow.slowMoveVertical(150);
+            hat.slowMoveVertical(150);
+            
+            //Alternates slowMove animations to create flicker effect and move outline with orb
+            for (int i = 0; i < 110; i++){
+                orbOutline.slowMoveVertical(-1);
+                orb.slowMoveVertical(-1);
+            }
             
             drawn = true;
         }
@@ -154,9 +157,9 @@ public class Picture
     {
         robe.changeColor("black");
         sleeve.changeColor("black");
+        wand.changeColor("black");
         glow.changeColor("black");
         hat.changeColor("black");
-        wand.changeColor("black");
         orbOutline.changeColor("black");
         orb.changeColor("white");
     }
@@ -168,9 +171,9 @@ public class Picture
     {
         robe.changeColor(robeColor);
         sleeve.changeColor(robeColor);
+        wand.changeColor(wandColor);
         glow.changeColor(glowColor);
         hat.changeColor(robeColor);
-        wand.changeColor(wandColor);
         orbOutline.changeColor(orbOutlineColor);
         orb.changeColor(orbColor);
     }
