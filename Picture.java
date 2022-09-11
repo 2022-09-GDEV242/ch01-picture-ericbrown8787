@@ -12,13 +12,14 @@
 public class Picture
 {   private Circle frame;
     private Square background;
+    
     private Person wizard;
     private Circle leftEye;
     private Circle rightEye;
     private Triangle nose;
     
     private Triangle robe;
-    private Square sleeve;
+    private Square sleeve;    
     private Circle glow;
     
     private Triangle hat;
@@ -26,9 +27,13 @@ public class Picture
     private Circle orb;
     private Circle orbOutline;
     
-    private Square testSquare;
+    //setting variables for colors for easily coloring multiple shapes that form a larger element
+    private String robeColor;
+    private String glowColor;
+    private String wandColor;
+    private String orbColor;
+    private String orbOutlineColor;
     
-    private Circle testCircle;
     private boolean drawn;
 
     /**
@@ -54,9 +59,13 @@ public class Picture
         orb = new Circle();
         
         orbOutline = new Circle();
-
-        testSquare = new Square();
-        testCircle = new Circle();
+        
+        robeColor = "purple";
+        glowColor = "yellow";
+        wandColor = "rust";
+        orbColor = "seafoam";
+        orbOutlineColor = "white";
+        
         drawn = false;
     }
 
@@ -66,7 +75,6 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            String robeColor = "purple";
             
             background.changeSize(500);
             background.changeColor("black");
@@ -116,21 +124,21 @@ public class Picture
             wand.changeSize(120,15);
             wand.moveVertical(0);
             wand.moveHorizontal(-90);
-            wand.changeColor("rust");
+            wand.changeColor(wandColor);
             wand.makeVisible();
             
-            glow.changeColor("yellow");
+            glow.changeColor(glowColor);
             glow.changeSize(30);
             glow.moveHorizontal(-90);
             glow.moveVertical(0);
             glow.makeVisible();
 
-            orbOutline.changeColor("white");
+            orbOutline.changeColor(orbOutlineColor);
             orbOutline.moveVertical(100);
             orbOutline.changeSize(94);
             orbOutline.makeVisible();
             
-            orb.changeColor("seafoam");
+            orb.changeColor(orbColor);
             orb.moveVertical(100);
             orb.changeSize(90);
             orb.makeVisible();
@@ -144,8 +152,13 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
+        robe.changeColor("black");
+        sleeve.changeColor("black");
+        glow.changeColor("black");
         hat.changeColor("black");
-        orb.changeColor("black");
+        wand.changeColor("black");
+        orbOutline.changeColor("black");
+        orb.changeColor("white");
     }
 
     /**
@@ -153,8 +166,12 @@ public class Picture
      */
     public void setColor()
     {
-
-        hat.changeColor("green");
-        orb.changeColor("yellow");
+        robe.changeColor(robeColor);
+        sleeve.changeColor(robeColor);
+        glow.changeColor(glowColor);
+        hat.changeColor(robeColor);
+        wand.changeColor(wandColor);
+        orbOutline.changeColor(orbOutlineColor);
+        orb.changeColor(orbColor);
     }
 }
